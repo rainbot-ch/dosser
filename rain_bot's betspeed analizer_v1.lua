@@ -27,7 +27,7 @@ i=1;for i=1,7 do print("\n")print(" ")end
     print("bets: "  ..bets)
     print("runtime: " .. hours .. " : " .. minutes .. " : " .. seconds)
     print("start time: " .. runtime.hour .. " : " .. runtime.min .. " : " .. runtime.sec)       --print(("start time: %02d:%02d:%02d"):format(runtime.hour, runtime.min, runtime.sec))
-    print("current time: ".. time.hour .. " : " .. time.min .. " : " .. time.sec)               --print(("start time: %02d:%02d:%02d"):format(runtime.hour, runtime.min, runtime.sec))
+    print("current time: ".. time.hour .. " : " .. time.min .. " : " .. time.sec)               --print(("current time: %02d:%02d:%02d"):format(time.hour, time.min, time.sec))
     print("bets per second: " .. string.format("%2.3f", speed) .. " bp/s ")
 j=1;for j=1,7 do print("\n")print(" ")end
 print("\n\n░▒▓█▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░▓▓▓▓▓▓▓▓▓▓▓▓█▓▒░\n\n")
