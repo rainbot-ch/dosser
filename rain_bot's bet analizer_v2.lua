@@ -64,7 +64,7 @@ end
 resetseed();resetstats();print("░▒▓█â–‘â–’â–“â–ˆ % initializing % â–ˆâ–“â–’â–‘█▓▒░")sleep(1);
 
 function dobet()
-			  bets = bets + 1
+	bets = bets + 1
     if (win) then
         wins       = wins + 1
         winstreak  = winstreak + 1
@@ -101,8 +101,8 @@ function dobet()
     if (bethigh == true) then direction = "high" else direction = "low" end
 	
     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□")
-    print("\n\n░▒▓█▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░▓▓▓▓▓▓▓▓▓▓▓▓█▓▒░\n\n")
-	print(" =========================================================")
+print("\n\n░▒▓█▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░▓▓▓▓▓▓▓▓▓▓▓▓█▓▒░\n\n")
+    print(" =========================================================")
     print(" time running: "..days..':'..hours ..':'..minutes..':'..seconds)
     print(" start time: " .. runtime.hour .. " : " .. runtime.min .. " : " .. runtime.sec)
     print(" current time: ".. time.hour .. " : " .. time.min .. " : " .. time.sec)  
@@ -113,7 +113,7 @@ function dobet()
     print(" average losses before win: " .. string.format("%.2f", avehit))
     print(" highest loss streak: " .. highloss .. " | highest win streak: " .. highwins)
     print(" =========================================================")
-	print("\n\n░▒▓█▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░▓▓▓▓▓▓▓▓▓▓▓▓█▓▒░\n\n")
+print("\n\n░▒▓█▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░▓▓▓▓▓▓▓▓▓▓▓▓█▓▒░\n\n")
     print("□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□\n\n\n") 
 end
 first=1;function rain3t()m1="¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶"m2="////////////////////////////////////////////////////////////////////////////"m3="                                                                            "m4="  ｡● ✧｡★ﾟ (/¯◡ ‿ ◡)/¯﻿☂ made with ♥ in Switzerland ☂ ~(˘▾˘~)  ﾟ｡✩ ✧ ●    "m5="                                                                            "m6="                            --  rainbot.ch  --                              "m7="                                                                            "m8="////////////////////////////////////////////////////////////////////////////"m9="¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶"M0="                                         "M1="     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░       "M2="     ░                           ░       "M3="     ░   ▄▄▄▄▄▄▄   ▄ ▄ ▄▄▄▄▄▄▄   ░       "M4="     ░   █ ▄▄▄ █ ▄ ▄ ▀ █ ▄▄▄ █   ░       "M5="     ░   █ ███ █  ▄ ▄█ █ ███ █   ░       "M6="     ░   █▄▄▄▄▄█ ▄▀█▀▄ █▄▄▄▄▄█   ░       "M7="     ░   ▄▄▄ ▄▄▄▄█ █ ▄▄▄   ▄     ░       "M8="     ░    ▀ █▄ ▄▀ ▄██  ▀▀██▄██   ░       "M9="     ░   ▀▄▄▀ ▄▄█▄ ▄█▀  █▄  ▀█   ░       "M10="     ░   ▄▄▄▄▄▄▄ █▀█ ▄█ ▄███▄█   ░       "M11="     ░   █ ▄▄▄ █ █ ▀ ▄  ▄▀  ▀▀   ░       "M12="     ░   █ ███ █ ▄▄▀█ ▀███ ▀▀▄   ░       "M13="     ░   █▄▄▄▄▄█ █▄▀█▀▀▄▀█  █▄   ░       "M14="     ░                           ░       "M15="     ░   --   rainbot.ch   --    ░       "M16="     ░                           ░       "M17="     ░                           ░       "M18="     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░       "M19="                                         "print(m1)print(m2)print(m3)print(m4)print(m5)print(m6)print(m7)print(m8)print(m9)print("\n\n░▒▓█▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░▓▓▓▓▓▓▓▓▓▓▓▓█▓▒░\n")print(M0)print(M1)print(M2)print(M3)print(M4)print(M5)print(M6)print(M7)print(M8)print(M9)print(M10)print(M11)print(M12)print(M13)print(M14)print(M15)print(M16)print(M17)print(M18)print(M19)print("fate, it seems, is not without a sense of irony")print("\n░▒▓█▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░▓▓▓▓▓▓▓▓▓▓▓▓█▓▒░\n\n")end;if first==1 then rain3t()sleep(3)first=0 end
