@@ -46,6 +46,7 @@ highwins    = 0
 difference  = 0
 winstreak   = 0
 losestreak  = 0
+ratio       = 0
 local clock = os.clock 
 local t0    = clock()
 local start = clock()
