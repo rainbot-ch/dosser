@@ -93,7 +93,7 @@ function dobet()
     time       = os.date("*t")
     times      = math.floor(curtime - starttime)
     days       = math.floor(times / 86400)
-    hours      = math.floor(times / 3600) --60^2 = 3600
+    hours      = math.floor(times / 3600)
     minutes    = math.floor((times - (hours * 3600)) / 60)
     seconds    = math.floor((times - (hours * 3600) - (minutes * 60)))
     difference = (100 / (100 - difference))
