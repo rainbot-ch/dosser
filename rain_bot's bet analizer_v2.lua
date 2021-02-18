@@ -96,6 +96,7 @@ function dobet()
     difflow    = (high - low)
     diffhigh   = (low - high)
     avehit     = (losses / bets)
+    ratio      = (wins - losses)
     if (losestreak >= highloss) then highloss = losestreak end
     if (winstreak >= highwins) then highwins = winstreak end
     if (bethigh == true) then direction = "high" else direction = "low" end
@@ -111,6 +112,7 @@ print("\n\n░▒▓█▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░
     print(" total bets n°: " .. bets)
     print(" total low: " .. string.format("%d", low) .. " ∆ " .. tostring(difflow) .. " | total high: " .. string.format("%d", high) .. " ∆ " .. tostring(diffhigh) .. " | difference: " .. difference .. "∆")
     print(" average losses before win: " .. string.format("%.2f", avehit))
+    print(" ratio: " .. ratio)
     print(" highest loss streak: " .. highloss .. " | highest win streak: " .. highwins)
     print(" =========================================================")
 print("\n\n░▒▓█▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░▓▓▓▓▓▓▓▓▓▓▓▓█▓▒░\n\n")
