@@ -47,6 +47,9 @@ difference  = 0
 winstreak   = 0
 losestreak  = 0
 ratio       = 0
+ratiohigh   = 0
+ratiolow    = 0
+avgratio    = 0
 local clock = os.clock 
 local t0    = clock()
 local start = clock()
@@ -98,8 +101,11 @@ function dobet()
     diffhigh   = (low - high)
     avehit     = (losses / bets)
     ratio      = (wins - losses)
+    avgratio   = (ratiohigh / ratiolow)	
     if (losestreak >= highloss) then highloss = losestreak end
     if (winstreak >= highwins) then highwins = winstreak end
+    if (ratio >= ratiohigh) then ratiohigh = ratio end
+    if (ratio <= ratiolow) then ratiolow = ratio end 
     if (bethigh == true) then direction = "high" else direction = "low" end
 	
     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□")
@@ -112,7 +118,8 @@ print("\n\n░▒▓█▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░
     print(" payout: "..string.format("%.2f",((100-1)/chance)).."x".." @ "..string.format("%.2f",chance).."% chance | " .. tostring(direction) .."\n increase: " .. string.format("%.4f",(99 / (99 - chance))) .. "x | " .. string.format("%.4f",(((99 / (99 - chance)) - 1) * 100)) .. "%")
     print(" total bets n°: " .. bets)
     print(" total low: " .. string.format("%d", low) .. " ∆ " .. tostring(difflow) .. " | total high: " .. string.format("%d", high) .. " ∆ " .. tostring(diffhigh) .. " | difference: " .. difference .. "∆")
-    print(" average losses before win: " .. string.format("%.2f", avehit) .. " | ratio: " .. ratio))
+    print(" average losses before win: " .. string.format("%.2f", avehit))
+    print(" current ratio: " .. ratio .. " | max positive: " .. ratiohigh .. " | max negative: " .. ratiolow .. " | avg ratio: " .. avgratio)
     print(" highest loss streak: " .. highloss .. " | highest win streak: " .. highwins)
     print(" =========================================================")
 print("\n\n░▒▓█▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░▓▓▓▓▓▓▓▓▓▓▓▓█▓▒░\n\n")
