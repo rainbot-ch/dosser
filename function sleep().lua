@@ -46,3 +46,9 @@ function dobet()
         delay = 1
     end
 local a=os.clock;function sleep(b)local c=a()while a()-c<=b do end end;
+--------------------------------------      
+function sleep(n)
+    t0 = os.clock() 
+    while os.clock() - t0 <= n do end
+end      
+--------------------------------------  
