@@ -32,9 +32,10 @@ coinvalue    = 190
 setup        = "39.92"
 --      SETUP       --
 -------------------[[]]
+profitmode   = false
 if (setup == "39.92") then
 chance       = 39.92
-basebet      = (balance / 3992)  --balance * (((balance / (99 / chance)) / chance) * 1 --[[intensity]] )
+basebet      = (balance / 3992)  --balance / (((balance / (99 / chance)) / chance) * 1 --[[resistance | higher number == smaller bets/lower intensity (1 = 100 div, 100 = 10k div e.g) ]] )
 end
 if (setup == "84.84") then
 oneoneseven  = false
@@ -58,20 +59,20 @@ end
  
 function dobet()
     if (setup == "39.92") then
-        nextbet = previousbet * (1.001 ^ 20)
-        if (chance == 39.92) then chance = 60.08 else chance = 39.92  end
-        if (bethigh == true) then bethigh = false else bethigh = true end
+            nextbet = previousbet * (1.001 ^ 20)
+            if (chance == 39.92) then chance = 60.08 else chance = 39.92  end
+            if (bethigh == true) then bethigh = false else bethigh = true end
     end
     if (setup == "84.84") then
         if (lastBet.profit >= 0) then
-        nextbet = basebet else 
-        nextbet = previousbet * 1.0011 ^ 24
+            nextbet = basebet else 
+            nextbet = previousbet * 1.0011 ^ 24
         end
     end
     if (setup == "84.84") and (oneoneseven) then
         if (lastBet.profit >= 0) then
-        nextbet = basebet else
-        nextbet = (previousbet * 1.117)
+            nextbet = basebet else
+            nextbet = (previousbet * 1.117)
         end          
     end      
     if (setup == "84.84") and (spendmode) then
@@ -86,6 +87,9 @@ function dobet()
     end
 
     if (balance >= target) then
+        if (profitmode) then
+        target = (startbalance + 0.00000001)
+    end
         startbalance = balance
         nextbet = basebet
         spend = 0
