@@ -35,7 +35,7 @@ setup        = "39.92"
 profitmode   = false
 if (setup == "39.92") then
 chance       = 39.92
-basebet      = (balance / 3992)  --balance / (((balance / (99 / chance)) / chance) * 1 --[[resistance | higher number == smaller bets/lower intensity (1 = 100 div, 100 = 10k div e.g) ]] )
+basebet      = (balance / 3992)
 end
 if (setup == "84.84") then
 oneoneseven  = false
