@@ -33,8 +33,6 @@ if prof         >= roundprofit then reset() end
 if nextbet      <= siteminbet then nextbet = siteminbet end
 if balance      >= largebalance then largebalance = balance loseamount = 0 else loseamount = (largebalance - balance) end
 if loseamount   >= largestloss then largestloss = loseamount end
-if balance      >= largebalance then largebalance = balance loseamount = 0 else loseamount = (largebalance - balance) end
-if loseamount   >= largestloss then largestloss = loseamount end
 
 --if (bets % 9999 == 0) then resetseed() end
 
