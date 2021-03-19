@@ -57,7 +57,7 @@ function dobet()
     if (balance >= target) then
         if (profitmode) then
         target = (startbalance + 0.00000001)
-    end
+        end
         startbalance = balance
         nextbet = basebet
     end
