@@ -29,27 +29,17 @@ value=0;avehit=0;totalloss=0;total=0;high=0;low=0;counter=0;losecount=0;wager=0;
 swapseed     = 5273
 currency     = "ltc"
 coinvalue    = 190
-setup        = "39.92"
 --      SETUP       --
 -------------------[[]]
 profitmode   = false
-if (setup == "39.92") then
 chance       = 39.92
 basebet      = (balance / 3992)
-end
-if (setup == "84.84") then
-oneoneseven  = false
-spendmode    = false
-chance       = 84.84
-basebet      = (balance / 8484)  --117  --848
-end
 bethigh      = false
 nextbet      = basebet
 startbalance = balance
 target       = (startbalance + 0.00000001)
 local clock  = os.clock 
 starttime    = clock()
-spend        = 0
 
 function sleep(n)
     local t0 = clock()
@@ -58,41 +48,18 @@ function sleep(n)
 end
  
 function dobet()
-    if (setup == "39.92") then
-            nextbet = previousbet * (1.001 ^ 20)
-            if (chance == 39.92) then chance = 60.08 else chance = 39.92  end
-            if (bethigh == true) then bethigh = false else bethigh = true end
-    end
-    if (setup == "84.84") then
-        if (lastBet.profit >= 0) then
-            nextbet = basebet else 
-            nextbet = previousbet * 1.0011 ^ 24
-        end
-    end
-    if (setup == "84.84") and (oneoneseven) then
-        if (lastBet.profit >= 0) then
-            nextbet = basebet else
-            nextbet = (previousbet * 1.117)
-        end          
-    end      
-    if (setup == "84.84") and (spendmode) then
-        if win then
-            spend = (spend - lastBet.profit)
-            if (spend <= 0) then spend = 0 end
-        else
-            spend = (spend + previousbet)
-        end
-        nextbet = (basebet + spend)
-    --nextbet = (spend / ((100 - 1) / chance))
-    end
-
+      
+      nextbet = previousbet * (1.001 ^ 20)
+      
+    if (chance == 39.92) then chance = 60.08 else chance = 39.92  end
+    if (bethigh == true) then bethigh = false else bethigh = true end
+      
     if (balance >= target) then
         if (profitmode) then
         target = (startbalance + 0.00000001)
     end
         startbalance = balance
         nextbet = basebet
-        spend = 0
     end
       
 curtime   = clock()
@@ -104,7 +71,6 @@ if (bethigh == true) then direction = "high" else direction = "low" end
 profittotal=profittotal+currentprofit;if balance>=largebalance then largebalance=balance;loseamount=0 else loseamount=largebalance-balance end;if loseamount>=largestloss then largestloss=loseamount end;if nextbet>=hibet then hibet=nextbet end;losspercent=largestloss/initialbalance*100;profitpercentage=profit/(balance-profit)*100;payout=99/chance;wager=wager+nextbet;wagerpercbal=wager/initialbalance;value=wager*coinvalue if lastBet.roll <= chance then low = low + 1 end if lastBet.roll >= (100 - chance) then high = high + 1 end if win then total = total + 1 totalloss = totalloss + losecount avehit = totalloss / total losecount = 0 else losecount = losecount + 1 end if bets % swapseed == 0 then resetseed() end
 i = 1;for i=1,25 do print("\n")print(" ")end 
 print("□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□")
-if (spendmode) then print("spend: " .. string.format("%9.8f", spend)) end 
 print("runtime: " .. hours .. 'h :' .. minutes .. 'm : ' .. seconds .. 's | N°' .. bets)
 print("bets per hour:\t" .. string.format("%.0f", (bets / (os.clock() - gametime) * 3600)) .. " | per day: " .. string.format("%.0f", (bets / (os.clock() - gametime) * 3600 * 24)))
 print("profit per hour:\t" .. string.format("%.8f", (profittotal / (os.clock() - gametime) * 3600)) .. " | " .. string.format("%.2f", (profittotal / (os.clock() - gametime) * 3600) / balance * 100) .. "%")
