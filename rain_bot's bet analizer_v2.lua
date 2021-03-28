@@ -34,6 +34,7 @@ chance      = 49.5
 bethigh     = true
 siteminbet  = 0.00000001
 ------------------------
+target      = 100 / chance * 0.99
 nextbet     = siteminbet
 wins        = 0
 losses      = 0
@@ -50,6 +51,18 @@ ratio       = 0
 ratiohigh   = 0
 ratiolow    = 0
 avgratio    = 0
+avglimbo    = 0
+maxlimbo    = 0
+instabust   = 0
+limboloss   = 0
+limbowin    = 0
+limboperc   = 0
+limbowon    = 0
+limboratio  = 0
+resultArr   = {}
+resultArr[1]= 0
+resultArr[2]= 0
+resultArr[3]= 0
 local clock = os.clock 
 local t0    = clock()
 local start = clock()
@@ -86,6 +99,21 @@ function dobet()
         high       = high + 1
         difference = difference + 1
     end
+    if (lastBet.roll >= maxlimbo) then 
+    	maxlimbo = lastBet.roll
+    	table.remove(resultArr,1,2,3)
+    	resultArr[1] = lastBet.roll
+	resultArr[2] = bets	
+    	resultArr[3] = lastBet.id
+    end
+    if (lastBet.roll <= 1.01) then
+    	instabust = instabust + 1
+    end
+    if (lastBet.roll <= target) then
+    	limboloss = limboloss + 1
+    else
+        limbowin = limbowin + 1
+    end
     
     t1         = clock() - t0
     speed      = bets / t1
@@ -101,7 +129,13 @@ function dobet()
     diffhigh   = (low - high)
     avehit     = (losses / bets)
     ratio      = (wins - losses)
-    avgratio   = (ratiohigh / ratiolow)	
+    avgratio   = (ratiohigh / ratiolow)
+    avglimbo   = (avglimbo + lastBet.roll)
+    avgpayout  = (avglimbo / bets)
+    limboperc  = (limboloss / bets) * 100
+    instaperc  = (instabust / bets) * 100
+    limbowon   = (limbowin / bets) * 100
+    limboratio = (limbowin - limboloss)
     if (losestreak >= highloss) then highloss = losestreak end
     if (winstreak >= highwins) then highwins = winstreak end
     if (ratio >= ratiohigh) then ratiohigh = ratio end
@@ -121,6 +155,11 @@ print("\n\n░▒▓█▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░
     print(" average losses before win: " .. string.format("%.2f", avehit))
     print(" current ratio: " .. ratio .. " | max positive: " .. ratiohigh .. " | max negative: " .. ratiolow .. " | avg ratio: " .. avgratio)
     print(" highest loss streak: " .. highloss .. " | highest win streak: " .. highwins)
+    print(" ----------------------- limbo --------------------------")
+    print(" avg payout: " .. string.format("%.2f", avgpayout) .. "x in " .. bets .. " bets")
+    print(" max multiplier: " .. resultArr[1] .. "x at bet°: " .. resultArr[2] .. " | b:" .. tostring(resultArr[3]))
+    print(" target reached or higher: " .. limbowin .. " in " .. bets .. " bets (" .. string.format("%2.0f", limbowon) .. "%) | current ratio: " .. limboratio) 
+    print(" less then target(" .. target .. "x) " .. limboloss .. " in " .. bets .. " bets (" .. string.format("%2.0f", limboperc) .. "%) | instabust at 1.00x: " .. instabust .. " (" .. string.format("%2.2f",instaperc) .. "%)") 
     print(" =========================================================")
 print("\n\n░▒▓█▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░▓▓▓▓▓▓▓▓▓▓▓▓█▓▒░\n\n")
     print("□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□\n\n\n") 
