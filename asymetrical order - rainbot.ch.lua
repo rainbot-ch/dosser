@@ -138,6 +138,7 @@ wageredpp        = (profit / wagered) * 10
 wagered          = wagered + previousbet
 satpb            = profit / bets
 payout           = ((100 - edge) / chance)
+chance = math.floor((chance*100)+0.5)/100 
 i = 1;for i=1,25 do print("\n")print(" ")end
 print("\n\n==========================================")
 print("math.random() " .. tostring(math.random()))
