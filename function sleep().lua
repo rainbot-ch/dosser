@@ -97,3 +97,18 @@ function dobet()
     print("% per Day: " .. string.format("%.2f", (profit / (os.clock() - gametime) * 3600 * 24) / balance * 100))
     print("==============================")
       
+    function gettime()
+    time       = os.date("*t")
+    timenow    = time.hour
+    timenowm   = time.min
+    timenows   = time.sec
+    if (timenow == 0) then
+        timenow = 24
+    end
+end
+gettime()
+print(" CURRENT TIME " .. timenow .. ":" .. timenowm .. ":" .. timenows)
+print((12 - timenow) * 3600 + (60 - timenowm) * 60)
+print((18 - timenow) * 3600 + (60 - timenowm) * 60)
+print((24 - timenow) * 3600 + (60 - timenowm) * 60)
+print(time)
