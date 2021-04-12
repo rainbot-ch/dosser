@@ -1,3 +1,36 @@
+-- sample lua code
+chance  = 49.5
+bethigh = true
+basebet = 0.00000001
+nextbet = basebet
+
+-------------------------------------------------------------------[[↓sleep function]]
+function sleep(n)
+    t0 = os.clock()
+    while os.clock() - t0 <= (n / 1000) do
+    end
+    if (bets == 1) then
+        print(" betdelay: " .. string.format("%.0f", (os.clock() - t0) * 1000) .. "ms")
+    end
+end
+-------------------------------------------------------------------[[↑]]
+
+function dobet()
+
+    sleep(167)	--[[executing the function while 'n' is replaced with your desired delay in milliseconds e.g. 167ms when placed directly after dobet() aka first order in the routine which means before each bet ]]
+
+    if (win) then
+        nextbet = basebet
+    else
+        nextbet = previousbet * 2
+    end
+end
+
+
+--==================================================================================================================================--
+--==================================================================================================================================--
+
+
 -- sample sleep function 'betdelay' --
 chance  = 49.5
 bethigh = true
