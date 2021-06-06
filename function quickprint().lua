@@ -1,4 +1,3 @@
-resetseed();resetstats();
 -------------------------------------------------------------------[[ values ]]    --[[initialbalance=balance;value=0;avehit=0;totalloss=0;total=0;high=0;low=0;losecount=0;wager=0;largebalance=0;loseamount=0;largestloss=0;hibet=0]]
 resetstats();initialbalance=balance;value,avehit,totalloss,total,high,low,losecount,wager,largebalance,loseamount,largestloss,hibet=0,0,0,0,0,0,0,0,0,0,0,0
 swapseed=0
