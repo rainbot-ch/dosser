@@ -25,6 +25,7 @@ function dobet()
        round=0
        nextbet=basebet
     end
+    if nextbet<basebet then nextbet=basebet end
     if largeloss<highprofit-profit then largeloss=highprofit-profit end
     if profit>highprofit then highprofit=profit end 
     if nextbet>hibet then hibet=nextbet end
