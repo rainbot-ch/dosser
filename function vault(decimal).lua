@@ -85,7 +85,7 @@ end;banker();
 function printwallet()
 --for clear = 1, 25, 1 do print("\n")print("")end
 print(" ▓▓□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□▓▓")
-print("▓\tbankroll in play: "..string.format("%.8f",balance-reserve).." | in reserve: " .. string.format("%.8f",reserve).."\t\t ▓")
+print("▓\tbankroll in play: "..string.format("%.8f",balance-reserve).." | in reserve: " .. string.format("%.8f",reserve*100).."\t\t ▓")
 print("▓\tvault: " ..string.format("%.8f",wallet).." "..string.format("%.3f",((wallet/genesis)*100)).."% ".." |  last input was: "..string.format("%.8f",input[1]).."\t\t ▓")
 if((balance+wallet)>=(genesis*2))then print("GGWP initial deposit doubled -> withdraw time and play with profit")end
 print("▓\tloadbalancer: " .. string.format("%.8f",loadbalancer).." | validator difference: " .. string.format("%.8f",(balance-validator)).."\t\t ▓")
