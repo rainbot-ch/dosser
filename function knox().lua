@@ -1,4 +1,3 @@
-resetstats()
 --▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄--
 ---------------------------------------------------------------------------------------------
 --░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░--
@@ -19,18 +18,19 @@ resetstats()
 
 ---------------[[~~~~~~~~~~~~~start of setup variables~~~~~~~~~~~~~]]--
 ---------------[[↓ stop if set percentage of initial bankroll is won]] 
-percentprofit   = 100   --%   
+percentprofit   = 100  --%   
 ---------------[[↓ stop if set percentage of initial bankroll is lost]] 
-percentloss     = 100   --%   
+percentloss     = 100  --%   
 ---------------[[↓ stop if wager is bigger then target]] 
-wagertarget     = 100   --x
+wagertarget     = 100  --x
 ---------------[[↓ --% percent of initial bankroll to keep secure in the reserve-wallet]] 
-reservepercent  = 33     --%  
+reservepercent  = 33   --%  
 ---------------[[↓ --% percantage of each profitable (win) to be transferred into the virtual vault]]  
 piggibank       = 33   --%
 ---------------[[↓ limit maxbet-amount in percent of your startingbalance]] 
-maxbetpercent   = 0.001  --%
+maxbetpercent   = 100  --%
 ---------------[[~~~~~~~~~~~~~end of setup variables~~~~~~~~~~~~~~~]]--
+resetstats()
 initial      =  balance
 limitmaxbet  = (initial*(maxbetpercent/100))
 target       = (initial+(initial*(percentprofit/100)))
