@@ -34,7 +34,7 @@ function dobet()------------------------[[ function dobet()]]
 function banker()
     balance=(balance-wallet)
         loadbalancer=(loadbalancer+currentprofit)
-            if((balance-validator)>0)and(loadbalancer>0)then vault(99)end
+            if((balance-validator)>0)and(loadbalancer>0)then vault(piggibank)end
         if(((balance+wallet)-nextbet)<wallet)then stop()end
     return balance
 end;banker();
