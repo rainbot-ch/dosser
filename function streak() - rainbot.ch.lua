@@ -1,3 +1,4 @@
+--https://www.jdoodle.com/ia/f2O
 function streak()
 --[~~~~~~~~~~~~~start of configuration~~~~~~~~~~~~~]--
     playmode  = false   -- activate it when using the script in dicebot to play with the calculated estimations
