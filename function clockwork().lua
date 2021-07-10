@@ -3,7 +3,7 @@ initialized=("\t\tinitialized:             %02d:%02d:%02d"):format(time.hour, ti
 function clockwork()
   	print("\n □□□►------------------------------------------◄□□□")
     print("\t\tcurrent time: "..tostring(os.date("%c")))
-	  --runtime=os.difftime(os.time(),started);("initialized @ "..tostring(os.date("%c",started)));
+	  runtime=os.difftime(os.time(),started);--("initialized @ "..tostring(os.date("%c",started)));
   	print(tostring(initialized))
 	  print(("\t\tcurrent session:\t  %02d:%02d:%02d:%02d"):format(math.floor(runtime/86400%24),math.floor(runtime/3600%60),math.floor(runtime/60%60),math.floor(runtime%60)))
     print(" □□□►------------------------------------------◄□□□\n")
