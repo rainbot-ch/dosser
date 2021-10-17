@@ -1,4 +1,4 @@
-time=os.date("*t");started=os.time();--print(tostring(os.time()))
+time=os.date("*t");started=os.time();--print(tostring(os.time()))--print(os.date("%Y-%m-%d %H:%M:%S"))
 initialized=("\t\tinitialized:             %02d:%02d:%02d"):format(time.hour, time.min, time.sec, period)
 function clockwork()
   	print("\n □□□►------------------------------------------◄□□□")
