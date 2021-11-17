@@ -12,16 +12,19 @@
       \**                           **/
 
 function init() {
+    function refresh() {
+        stop();
+        first = true;
+        init();
+        update = setInterval(priceTicker, 5e2-7*34);
+    }
     function stop() {
         clearInterval(update);
-        setTimeout(() => { clearInterval(update); }, 1337);
         document.getElementById("clear").remove();
         document.querySelector("#convert").remove();
         document.querySelector("#profits").remove();
         document.querySelector("#wager").remove();
         document.querySelector("#max").remove();
-        console.log('stopped and removed, "flies away.."');
-        setTimeout(() => { console.clear(); }, 3301);
     }
     var currency = document.querySelector("#jsBotCoin").value;
     var clear = document.createElement("button");
@@ -36,6 +39,9 @@ function init() {
     body.appendChild(clear);
     clear.addEventListener("click", function() {
         stop();
+    });
+    document.querySelector("#jsBotCoin").addEventListener("click", function() {
+        refresh();
     });
     var conv = document.querySelector("#convert");
     if (conv == null) {
@@ -84,7 +90,7 @@ function priceTicker() {
             console.log("price:\t\t " + data.ticker.price + " $");
             console.log("balance:\t " + (data.ticker.price * balance).toFixed(8) + " $ ");
             console.log("minbet:\t\t " + (0.0001 / data.ticker.price).toFixed(8) + " " + currency.toUpperCase());
-            setTimeout(() => { first = false; }, 5273);
+            first = false;
         }
         document.querySelector("#convert").innerText = " " + (data.ticker.price * balance).toFixed(2) + "$";
         document.querySelector("#profits").innerText = " " + (data.ticker.price * profit).toFixed(2) + "$";
@@ -93,9 +99,7 @@ function priceTicker() {
     });
 }
 init();
-var update = setInterval(priceTicker, 1337);
-
-
+var update = setInterval(priceTicker, 5e2-7*34);
 
 
  //////////////////////////////////////////////////////////////
