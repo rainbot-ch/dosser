@@ -1,0 +1,1 @@
+function wait(ms){hold=Date.now();for(;Date.now()<hold+ms;);console.group('‎');console.info('\u200e');console.groupEnd();return}wait(1337);
